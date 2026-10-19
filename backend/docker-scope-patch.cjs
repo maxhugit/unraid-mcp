@@ -11,6 +11,11 @@ function replaceOnce(expected, replacement) {
 }
 
 replaceOnce(
+  'import { registerApiV4Tools } from "./api-v4-tools.js";',
+  'import { registerApiV4Tools } from "./api-v4-tools.js";\nimport { registerComposeTools } from "./compose-tools.js";',
+);
+
+replaceOnce(
   '    if (config.allowMutations)\n        registerMutationTools(server, client, config);\n    if (config.allowMutations && config.allowDestructiveMutations) {\n        registerDestructiveTools(server, client);\n    }\n    registerApiV4Tools(server, client, readFacade, config);',
   `    if (config.allowMutations) {
         const register = server.registerTool.bind(server);
@@ -21,6 +26,7 @@ replaceOnce(
         registerMutationTools(server, client, {...config, allowDestructiveMutations: true});
         server.registerTool = register;
     }
+    registerComposeTools(server);
     registerApiV4Tools(server, client, readFacade, {...config, allowMutations: false, allowDestructiveMutations: false});`,
 );
 replaceOnce(
@@ -33,4 +39,4 @@ replaceOnce(
 );
 
 fs.writeFileSync(serverPath, source);
-console.log('Docker-only mutation scope applied; update confirmation gate retained.');
+console.log('Docker and allowlisted Compose mutation scope applied; confirmation gates retained.');
