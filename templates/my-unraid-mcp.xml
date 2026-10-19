@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>unraid-mcp</Name>
+  <Repository>ghcr.io/maxhugit/unraid-mcp:latest</Repository>
+  <Registry>https://github.com/maxhugit/unraid-mcp/pkgs/container/unraid-mcp</Registry>
+  <Network>host</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/maxhugit/unraid-mcp/issues</Support>
+  <Project>https://github.com/maxhugit/unraid-mcp</Project>
+  <Overview>Serveur MCP sécurisé pour consulter Unraid et piloter le démarrage, l’arrêt et la mise à jour des conteneurs.</Overview>
+  <Category>Tools:Utilities Network:Management Security:</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/maxhugit/unraid-mcp/main/templates/my-unraid-mcp.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/IDmedia/hass-unraid/main/extras/logo.png</Icon>
+  <ExtraParams>--read-only --cap-drop=ALL --security-opt=no-new-privileges:true --memory=384m --pids-limit=128 --env-file=/mnt/user/appdata/unraid-mcp/backend.env</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires>Créez d’abord /mnt/user/appdata/unraid-mcp/backend.env à partir de config/backend.env.example.</Requires>
+  <TailscaleStateDir/>
+</Container>

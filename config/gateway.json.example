@@ -1,0 +1,19 @@
+{
+  "client_id": "REPLACE_WITH_OIDC_CLIENT_ID",
+  "client_secret": "REPLACE_WITH_OIDC_CLIENT_SECRET",
+  "discovery_url": "https://auth.example.com/application/o/unraid-mcp/.well-known/openid-configuration",
+  "base_url": "https://unraid-mcp.example.com",
+  "backend_url": "http://127.0.0.1:8310/mcp",
+  "backend_token": "SAME_VALUE_AS_MCP_AUTH_TOKEN",
+  "signing_key": "REPLACE_WITH_A_LONG_RANDOM_SIGNING_KEY",
+  "listen_host": "0.0.0.0",
+  "listen_port": 8311,
+  "required_scopes": ["openid", "offline_access"],
+  "allowed_client_redirect_uris": [
+    "https://chatgpt.com/connector_platform_oauth_redirect",
+    "https://chatgpt.com/connector/oauth/*",
+    "https://your-codex-webui.example.com/mcp/oauth/callback",
+    "http://127.0.0.1:*/*",
+    "http://localhost:*/*"
+  ]
+}
