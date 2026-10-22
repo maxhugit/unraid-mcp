@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>unraid-compose-agent</Name>
+  <Repository>ghcr.io/maxhugit/unraid-compose-agent:latest</Repository>
+  <Registry>https://github.com/maxhugit/unraid-mcp/pkgs/container/unraid-compose-agent</Registry>
+  <Network>host</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/maxhugit/unraid-mcp/issues</Support>
+  <Project>https://github.com/maxhugit/unraid-mcp</Project>
+  <Overview>Agent local à périmètre restreint permettant au MCP Unraid de mettre à jour uniquement les stacks Docker Compose explicitement autorisées.</Overview>
+  <Category>Tools:Utilities Network:Management Security:</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/maxhugit/unraid-mcp/main/templates/my-unraid-compose-agent.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/IDmedia/hass-unraid/main/extras/logo.png</Icon>
+  <ExtraParams>--read-only --cap-drop=ALL --security-opt=no-new-privileges:true --memory=256m --pids-limit=128 --tmpfs=/tmp:rw,noexec,nosuid,size=16m --env-file=/mnt/user/appdata/unraid-mcp/compose-agent.env</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires>Créez compose-agent.env et compose-stacks.json dans /mnt/user/appdata/unraid-mcp. Vérifiez le chemin source de la stack codex-web avant le démarrage.</Requires>
+  <TailscaleStateDir/>
+  <Config Name="Docker socket" Target="/var/run/docker.sock" Default="/var/run/docker.sock" Mode="rw" Description="Socket Docker requis pour docker compose. Ce montage donne un pouvoir élevé à l’agent, compensé par l’écoute locale, le jeton et la liste blanche." Type="Path" Display="always" Required="true" Mask="false">/var/run/docker.sock</Config>
+  <Config Name="Configuration des stacks" Target="/config/stacks.json" Default="/mnt/user/appdata/unraid-mcp/compose-stacks.json" Mode="ro" Description="Liste blanche des stacks, fichiers et dépôts d’images autorisés." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/unraid-mcp/compose-stacks.json</Config>
+  <Config Name="Stack codex-web" Target="/stacks/codex-web" Default="/mnt/pool/appdata/codex-web" Mode="rw" Description="Dossier contenant docker-compose.yml et images.env." Type="Path" Display="always" Required="true" Mask="false">/mnt/pool/appdata/codex-web</Config>
+</Container>

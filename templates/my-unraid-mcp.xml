@@ -9,7 +9,7 @@
   <Privileged>false</Privileged>
   <Support>https://github.com/maxhugit/unraid-mcp/issues</Support>
   <Project>https://github.com/maxhugit/unraid-mcp</Project>
-  <Overview>Serveur MCP sécurisé pour consulter Unraid et piloter le démarrage, l’arrêt et la mise à jour des conteneurs.</Overview>
+  <Overview>Serveur MCP sécurisé pour consulter Unraid, piloter les conteneurs et déléguer la mise à jour des stacks Compose autorisées à l’agent local.</Overview>
   <Category>Tools:Utilities Network:Management Security:</Category>
   <WebUI/>
   <TemplateURL>https://raw.githubusercontent.com/maxhugit/unraid-mcp/main/templates/my-unraid-mcp.xml</TemplateURL>

@@ -2,5 +2,6 @@ FROM lemanjo/unraid-mcp@sha256:93c7f8c5d688d52d1912011fb509e48023080fdcf93fec0b7
 
 USER 0
 COPY docker-scope-patch.cjs /app/docker-scope-patch.cjs
+COPY compose-tools.js /app/dist/compose-tools.js
 RUN ["/nodejs/bin/node", "/app/docker-scope-patch.cjs"]
 USER 65532:65532

@@ -1,0 +1,12 @@
+{
+  "stacks": {
+    "codex-web": {
+      "directory": "/stacks/codex-web",
+      "compose_file": "docker-compose.yml",
+      "env_file": "images.env",
+      "image_variable": "CODEX_APP_IMAGE",
+      "image_repository": "ghcr.io/maxhugit/codex-webui-unraid",
+      "project_name": "codex-web"
+    }
+  }
+}
