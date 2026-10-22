@@ -17,6 +17,11 @@ auth = OIDCProxy(
     jwt_signing_key=cfg["signing_key"],
     allowed_client_redirect_uris=cfg["allowed_client_redirect_uris"],
     require_authorization_consent=True,
+    # ChatGPT and Codex publish short-lived CIMD/JWKS URLs. They can disappear
+    # between authorization and the token exchange, making private_key_jwt
+    # authentication fail with a 401. DCR + PKCE avoids that external lookup
+    # while keeping redirect URIs restricted by the allow-list above.
+    enable_cimd=False,
 )
 
 
